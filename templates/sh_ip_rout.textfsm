@@ -1,0 +1,24 @@
+Value Network (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})
+Value Protocol (\w)
+Value Type (\w{0,2})
+Value Mask (\d{1,2})
+Value Distance (\d+)
+Value Metric (\d+)
+Value Nexthop_IP (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})
+Value Nexthop_IF ([A-Z][\w\-\.:/]+)
+Value Uptime (\d[\w:\.]+)
+
+Start
+  ^Gateway.*
+  ^\s+\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}\/${Mask}\sis -> Clear
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\/${Mask}\sis\sdirectly\sconnected,\s${Nexthop_IF} -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\sis\sdirectly\sconnected,\s${Nexthop_IF} -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\/${Mask}\s\[${Distance}/${Metric}\]\svia\s${Nexthop_IP}(,\s${Uptime})?(,\s${Nexthop_IF})? -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\s\[${Distance}\/${Metric}\]\svia\s${Nexthop_IP}(,\s${Uptime})?(,\s${Nexthop_IF})? -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\/${Mask}\s\[${Distance}/${Metric}\],\s${Uptime},\s${Nexthop_IF} -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\/${Mask}\sis\sa\ssummary,\s${Uptime},\s${Nexthop_IF} -> Record
+  ^${Protocol}(\s|\*)${Type}\s+${Network}\/${Mask} -> Next
+  ^${Protocol}(\s|\*)${Type}\s+${Network} -> Next
+  ^\s+\[${Distance}\/${Metric}\]\svia\s${Nexthop_IP}(,\s${Uptime})?(,\s${Nexthop_IF})? -> Record
+  ^\s+\[${Distance}\/${Metric}\]\svia\s${Nexthop_IP} -> Record
+  

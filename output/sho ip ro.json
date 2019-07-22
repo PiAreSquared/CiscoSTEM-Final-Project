@@ -1,0 +1,32 @@
+{
+  "192.168.56.0": {
+    "Distance": "",
+    "Mask": "24",
+    "Metric": "",
+    "Nexthop_IF": "GigabitEthernet1",
+    "Nexthop_IP": "",
+    "Protocol": "C",
+    "Type": "",
+    "Uptime": ""
+  },
+  "192.168.56.103": {
+    "Distance": "",
+    "Mask": "32",
+    "Metric": "",
+    "Nexthop_IF": "GigabitEthernet1",
+    "Nexthop_IP": "",
+    "Protocol": "L",
+    "Type": "",
+    "Uptime": ""
+  },
+  "73.73.37.37": {
+    "Distance": "",
+    "Mask": "",
+    "Metric": "",
+    "Nexthop_IF": "Loopback0",
+    "Nexthop_IP": "",
+    "Protocol": "C",
+    "Type": "",
+    "Uptime": ""
+  }
+}

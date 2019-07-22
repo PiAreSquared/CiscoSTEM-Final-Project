@@ -1,0 +1,9 @@
+Value interface (\S+)
+Value IP (\S+)
+Value Method (\S+)
+Value Status (\S+)
+Value Protocol (\S+)
+
+Start
+  ^Int.*
+  ^${interface}\s+${IP}\s+\S+\s+${Method}\s+${Status}\s+${Protocol}.* -> Record

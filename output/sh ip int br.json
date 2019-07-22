@@ -1,0 +1,14 @@
+{
+  "GigabitEthernet1": {
+    "IP": "192.168.56.103",
+    "Method": "DHCP",
+    "Protocol": "up",
+    "Status": "up"
+  },
+  "Loopback0": {
+    "IP": "1.1.1.1",
+    "Method": "manual",
+    "Protocol": "up",
+    "Status": "up"
+  }
+}
